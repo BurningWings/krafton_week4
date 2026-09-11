@@ -90,7 +90,23 @@ int main()
 
 int insertSortedLL(LinkedList *ll, int item)
 {
-	/* add your code here */
+	int c = ll->size;
+	// for(int i = 0; c < i; i++){
+	for (int i = 0 ; i < ll->size; i++){
+		// if (ll->head==NULL || findNode(ll,i)->item<item){
+		// insertNode(ll,ll->size,item);
+		// }
+		if (findNode(ll,i)->item==item){
+			return -1;
+		}
+		else if (findNode(ll,i)->item<item){
+			insertNode(ll,i,item);
+			return i;
+		}
+	}
+	insertNode(ll,ll->size,item);
+	return ll->size-1;
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
