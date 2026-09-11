@@ -25,7 +25,7 @@ typedef struct _linkedlist{
 ///////////////////////// function prototypes ////////////////////////////////////
 
 //You should not change the prototype of this function
-int insertSortedLL(LinkedList *ll, int item);
+int insertSortedLL(LinkedList *ll, int item); //item 은 1 하고 입력한값
 
 void printList(LinkedList *ll);
 void removeAllItems(LinkedList *ll);
