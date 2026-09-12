@@ -103,10 +103,19 @@ int main()
 
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
-    // for (int i =1; (ll1->size>ll2->size)? ll2->size:ll1->size > i; i+=2){}
-	for (int i =0 ; ll2->size>4;i++){
-		int a = findNode(ll2,i)->item;
-		insertNode(ll1,i,a);
+
+	int b ;
+	int num = 1;
+	if (ll1->size > ll2->size){
+		b = ll2->size;
+	}
+	else {
+		b = ll1->size;
+	}
+	for (int i = 0 ; b > i ;i++){ //3번 반복하는거
+	insertNode(ll1,num,findNode(ll2,0)->item);
+	num +=2;
+	removeNode(ll2,0);
 	}
 }
 
