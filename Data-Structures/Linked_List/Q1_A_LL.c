@@ -18,7 +18,7 @@ typedef struct _listnode{
 
 typedef struct _linkedlist{
 	int size;
-	ListNode *head;
+	ListNode *head;	
 } LinkedList;			// You should not change the definition of LinkedList
 
 
@@ -90,16 +90,8 @@ int main()
 
 int insertSortedLL(LinkedList *ll, int item)
 {
-	int c = ll->size;
-	// for(int i = 0; c < i; i++){
-	for (int i = 0 ; i < ll->size; i++){
-		// if (ll->head==NULL || findNode(ll,i)->item<item){
-		// insertNode(ll,ll->size,item);
-		// }
-		if (findNode(ll,i)->item==item){
-			return -1;
-		}
-		else if (findNode(ll,i)->item<item){
+	for (int i =0 ; ll->size>i;i++){
+		if (findNode(ll,i)->item>item){
 			insertNode(ll,i,item);
 			return i;
 		}
