@@ -23,7 +23,6 @@ typedef struct _linkedlist
 	ListNode *head;
 } LinkedList;			// You should not change the definition of LinkedList
 
-
 //////////////////////// function prototypes /////////////////////////////////////
 
 // You should not change the prototype of this function
@@ -88,7 +87,26 @@ int main()
 
 int moveMaxToFront(ListNode **ptrHead)
 {
-    /* add your code here */
+	ListNode *max;
+	ListNode *view;
+	ListNode *max_view;
+	ListNode *ptr;
+	ptr = *ptrHead; //2,7,18,3,4 리스트가 들어감
+	max = *ptrHead; //바로 앞에 2값이 들어감
+	while (ptr!=NULL){
+		if (ptr->item > max->item){
+			max=ptr;
+			max_view=view; // 이전 노드값을 max_view 에 집어넣음
+		}
+		view = ptr; //현재 2값이 들어가고 바로 다음에 2앞에 값이 들어가면서 자동으로 이전 노드 값이 들어가게 됨
+		ptr=ptr->next;
+	}
+	if(max==*ptrHead){
+		return 0;
+	}
+	max_view->next=max->next; //가장 큰값의 이전노드의 next 를 max노드의 next에 집어넣음 연결시킴
+	max->next = (*ptrHead);
+	(*ptrHead)=max; //가장 첫 노드를 max로 바꿈
 }
 
 //////////////////////////////////////////////////////////////////////////////////
